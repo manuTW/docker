@@ -4,8 +4,7 @@ tv407:
     - "9981:9981"
   volumes:
     - "hts:/root/.hts"
-    - "videos:/root/Videos"
-  devices:
-    - "/dev/dvb:/dev/dvb"
-  command: "tvheadend -d"
+    - "Videos:/root/Videos"
+    - "dvb:/dev/dvb"
+  command: "/usr/local/bin/tvheadend -C"
 
