@@ -1,0 +1,11 @@
+tv407:
+  image: manuchen/tv407
+  ports:
+    - "9981:9981"
+  volumes:
+    - "hts:/root/.hts"
+    - "videos:/root/Videos"
+  devices:
+    - "/dev/dvb:/dev/dvb"
+  command: "tvheadend -d"
+
