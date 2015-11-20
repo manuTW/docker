@@ -3,7 +3,6 @@ tv407:
   ports:
     - "9981:9981"
   volumes:
-    - "hts:/root/.hts"
     - "Videos:/root/Videos"
     - "dvb:/dev/dvb"
   command: "/usr/local/bin/tvheadend -C"
