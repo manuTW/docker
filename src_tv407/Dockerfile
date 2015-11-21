@@ -8,7 +8,7 @@ RUN mkdir /mysrc
 ADD tv407.tar.gz /mysrc
 ADD libiconv-1.13.1.tar.gz /mysrc
 
-VOLUME /mysrc
+VOLUME ["/mysrc"]
 
 CMD ["/bin/sh"]
 
