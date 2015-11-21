@@ -1,0 +1,749 @@
+/*
+ * Ext JS Library 2.1
+ * Copyright(c) 2006-2008, Ext JS, LLC.
+ * licensing@extjs.com
+ * 
+ * http://extjs.com/license
+ */ 
+#header {
+    font-family: tahoma,arial;
+    background-color: #507AAA;
+    color: #F8F8F8;
+    height: 5.3em;
+    margin: 0;
+    padding: 6px 8px 0 6px;
+    background: url(../img/bg-header.png) repeat-x scroll 0 0 transparent;
+    height: 45px;
+}
+
+#header > h1 {
+    background: url(../img/logo.png) no-repeat scroll 10px 20% transparent;
+    color: #E0E0E0;
+    font-size: 22px;
+    padding: 2px 55px;
+    text-shadow: 0 -2px rgba(0, 0, 0, 0.2);
+}
+
+
+.x-tab-strip li.x-tab-login {
+    margin-left: 16px;
+}
+
+.x-tab-strip span.x-tab-strip-login {
+    vertical-align: middle;
+    white-space: nowrap;
+    padding:4px 0px;
+}
+
+.x-tab-strip span.x-tab-strip-login-cmd {
+    vertical-align: middle;
+    cursor:pointer;
+    padding:4px 0;
+    float: right;
+}
+
+.x-tree-col {
+    float: left;
+    overflow: hidden;
+    padding: 0 1px;
+    zoom: 1;
+}
+
+.x-tree-col-text,.x-tree-hd-text {
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    padding: 3px 3px 3px 5px;
+    white-space: nowrap;
+    font: normal 11px arial, tahoma, helvetica, sans-serif;
+}
+
+.x-tree-headers {
+    background: #f9f9f9
+        url(../extjs/resources/images/default/grid/grid3-hrow.gif) repeat-x 0
+        bottom;
+    cursor: default;
+    zoom: 1;
+}
+
+.x-tree-hd {
+    float: left;
+    overflow: hidden;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #d0d0d0;
+}
+
+.x-tree-node-leaf .x-tree-node-icon {
+    background-image: url(../icons/tv_cards.png);
+}
+
+.ux-mselect {
+    overflow: auto;
+    background: white;
+    position: relative; /* for calculating scroll offsets */
+    zoom: 1;
+    overflow: auto;
+}
+
+.ux-mselect-item {
+    font: normal 12px tahoma, arial, helvetica, sans-serif;
+    padding: 2px;
+    border: 1px solid #fff;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.ux-mselect-selected {
+    border: 1px dotted #a3bae9 !important;
+    background: #DFE8F6;
+    cursor: pointer;
+}
+
+.x-view-drag-insert-above {
+    border-top: 1px dotted #3366cc;
+}
+
+.x-view-drag-insert-below {
+    border-bottom: 1px dotted #3366cc;
+}
+
+.x-grid3-progresscol .x-grid3-cell-inner {
+    padding: 0px 0px 0px 5px;
+}
+
+.x-grid3-progresscol .x-progress-bar {
+    height: 16px;
+}
+
+.x-grid3-progresscol .x-progress-inner {
+    height: 16px;
+}
+
+.x-grid3-progresscol .x-progress-text-front-ie6 {
+    padding: 2.5px 5px;
+}
+
+.x-grid3-progresscol .x-progress-text-front {
+    padding: 2px 5px;
+}
+
+.x-progress-bar-red,.x-progress-bar-orange,.x-progress-bar-green {
+    border-bottom: 1px solid #7fa9e4;
+    float: left;
+    height: 16px;
+}
+
+.x-progress-bar-red {
+    background: #ff0000 url(../icons/progress-bg-red.gif) repeat-x scroll
+        left center;
+    border-top: 1px solid #ecb7ad;
+}
+
+.x-progress-bar-orange {
+    background: #9cbfee url(../icons/progress-bg-orange.gif) repeat-x scroll
+        left center;
+    border-right: 1px solid #deab7e;
+    border-top: 1px solid #d7b290;
+}
+
+.x-progress-bar-green {
+    background: #00ff00 url(../icons/progress-bg-green.gif) repeat-x scroll
+        left center;
+    border-right: 1px solid #5bd976;
+    border-top: 1px solid #79e18f;
+}
+
+.tvh-grid-unset {
+    color: #888;
+    font-style: italic;
+}
+
+.find {
+    background-image: url(../icons/find.png) !important;
+}
+
+.add {
+    background-image: url(../icons/add.png) !important;
+}
+
+.option {
+    background-image: url(../icons/plugin.png) !important;
+}
+
+.remove {
+    background-image: url(../icons/delete.png) !important;
+}
+
+.cancel {
+    background-image: url(../icons/cancel.png) !important;
+}
+
+.moveup {
+    background-image: url(../icons/arrow_up.png) !important;
+}
+
+.movedown {
+    background-image: url(../icons/arrow_down.png) !important;
+}
+
+.save {
+    background-image: url(../icons/save.png) !important;
+}
+
+.apply {
+    background-image: url(../icons/accept.png) !important;
+}
+
+.rec {
+    background-image: url(../icons/rec.png) !important;
+}
+
+.stopRec {
+    background-image: url(../icons/stop_rec.png) !important;
+}
+
+.info {
+    background-image: url(../icons/information.png) !important;
+}
+
+.undo {
+    background-image: url(../icons/undo.png) !important;
+}
+
+.edit {
+    background-image: url(../icons/edit.png) !important;
+}
+
+.key {
+    background-image: url(../icons/key.png) !important;
+}
+
+.tags {
+    background-image: url(../icons/tag_blue.png) !important;
+}
+
+.xml {
+    background-image: url(../icons/tag.png) !important;
+}
+
+.drive {
+    background-image: url(../icons/drive.png) !important;
+}
+
+.group {
+    background-image: url(../icons/group.png) !important;
+}
+
+.hardware {
+    background-image: url(../icons/pci.png) !important;
+}
+
+.television {
+    background-image: url(../icons/television.png) !important;
+}
+
+.eye {
+    background-image: url(../icons/eye.png) !important;
+}
+
+.control_play {
+    background-image: url(../icons/control_play.png) !important;
+}
+
+.control_pause {
+    background-image: url(../icons/control_pause.png) !important;
+}
+
+.control_stop {
+    background-image: url(../icons/control_stop.png) !important;
+}
+
+.control_volume {
+    background-image: url(../icons/sound.png) !important;
+}
+
+.control_fullscreen {
+    background-image: url(../icons/full_screen.png) !important;
+}
+
+.newspaper {
+    background-image: url(../icons/newspaper.png) !important;
+}
+
+.clock {
+    background-image: url(../icons/clock.png) !important;
+}
+
+.exclamation {
+    background-image: url(../icons/exclamation.png) !important;
+}
+
+.wrench {
+    background-image: url(../icons/wrench.png) !important;
+}
+
+.wand {
+    background-image: url(../icons/wand.png) !important;
+}
+
+.merge {
+    background-image: url(../icons/arrow_join.png) !important;
+}
+
+.iptv {
+    background-image: url(../icons/world.png) !important;
+}
+
+.clone {
+    background-image: url(../icons/layers.png) !important;
+}
+
+.scheduled {
+    background-image: url(../icons/scheduled.png) !important;
+}
+
+.recordingError {
+    background-image: url(../icons/exclamation.png) !important;
+}
+
+.completed {
+    background-image: url(../icons/accept.png) !important;
+}
+
+.completedError {
+    background-image: url(../icons/exclamation.png) !important;
+}
+
+.recording {
+    background-image: url(../icons/rec.png) !important;
+}
+
+.bullet_add {
+    background-image: url(../icons/bullet_add.png) !important;
+}
+
+.arrow_up {
+    background-image: url(../icons/arrow_up.png) !important;
+}
+
+.arrow_down {
+    background-image: url(../icons/arrow_down.png) !important;
+}
+
+.arrow_switch {
+    background-image: url(../icons/arrow_switch.png) !important;
+}
+
+.film {
+    background-image: url(../icons/film.png) !important;
+}
+
+.film_edit {
+    background-image: url(../icons/film_edit.png) !important;
+}
+
+.film_key {
+    background-image: url(../icons/film_key.png) !important;
+}
+
+.caclientNone {
+    background-image: url(../icons/stop.png) !important;
+}
+
+.caclientReady {
+    background-image: url(../icons/accept.png) !important;
+}
+
+.caclientConnected {
+    background-image: url(../icons/tick.png) !important;
+}
+
+.caclientDisconnected {
+    background-image: url(../icons/exclamation.png) !important;
+}
+
+.tvCards {
+    background-image: url(../icons/tv_cards.png) !important;
+}
+
+.networks {
+    background-image: url(../icons/networks.png) !important;
+}
+
+.muxes {
+    background-image: url(../icons/muxes.png) !important;
+}
+
+.muxSchedulers {
+    background-image: url(../icons/mux_schedulers.png) !important;
+}
+
+.services {
+    background-image: url(../icons/services.png) !important;
+}
+
+.teletext {
+    background-image: url(../icons/teletext.png) !important;
+}
+
+.subtitle {
+    background-image: url(../icons/subtitle.png) !important;
+}
+
+.serviceMapper {
+    background-image: url(../icons/service_mapper.png) !important;
+}
+
+.otherFilters {
+    background-image: url(../icons/other_filters.png) !important;
+}
+
+.channels {
+    background-image: url(../icons/channels.png) !important;
+}
+
+.channelTags{
+    background-image: url(../icons/channel_tags.png) !important;
+}
+
+.help{
+    background-image: url(../icons/help.png) !important;
+}
+
+.watchTv{
+    background-image: url(../icons/watch_tv.png) !important;
+}
+
+.autoRec{
+    background-image: url(../icons/auto_rec.png) !important;
+}
+
+.debug{
+    background-image: url(../icons/debug.png) !important;
+}
+
+.upcomingRec{
+    background-image: url(../icons/upcoming_rec.png) !important;
+}
+
+.finishedRec{
+    background-image: url(../icons/accept.png) !important;
+}
+
+.general{
+    background-image: url(../icons/general.png) !important;
+}
+
+.dvrprofiles{
+    background-image: url(../icons/dvrprofiles.png) !important;
+}
+
+.recordingtab{
+    background-image: url(../icons/recordingtab.png) !important;
+}
+
+.timeshift{
+    background-image: url(../icons/timeshift.png) !important;
+}
+
+.stream{
+    background-image: url(../icons/stream.png) !important;
+}
+
+.connections{
+    background-image: url(../icons/connections.png) !important;
+}
+
+.subscriptions{
+    background-image: url(../icons/subscriptions.png) !important;
+}
+
+.clean{
+    background-image: url(../icons/clean.png) !important;
+}
+
+.resetIcon{
+    background-image: url(../icons/reseticon.png) !important;
+}
+
+.dvr{
+    background-image: url(../icons/dvr.png) !important;
+}
+
+.epg{
+    background-image: url(../icons/epg.png) !important;
+}
+
+.broadcast_details{
+    background-image: url(../icons/broadcast_details.png) !important;
+}
+
+.time_schedules{
+    background-image: url(../icons/time_schedules.png) !important;
+}
+
+.download{
+    background-image: url(../icons/download.png) !important;
+}
+
+.abort{
+    background-image: url(../icons/abort.png) !important;
+}
+
+.bouquets{
+    background-image: url(../icons/bouquets.png) !important;
+}
+
+.cancelButton{
+    background-image: url(../icons/cancel_button.png) !important;
+}
+
+.x-linked {
+    display: inline-block;
+    background-image: url(../icons/linked.gif) !important;
+    background-repeat: no-repeat;
+    width: 4px;
+}
+
+.x-smallhdr {
+    float: left;
+    width: 100px;
+}
+
+
+.x-nice-dayofweek {
+    display: inline-block;
+    width: 6em;
+}
+
+.x-nice-date {
+    display: inline-block;
+    text-align: center;
+    width: 6em;
+}
+
+.x-nice-time {
+    display: inline-block;
+    width: 4em;
+    text-align: right;
+}
+
+.x-epg-title {
+    margin: 5px;
+    font: normal 16px arial, tahoma, helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.x-epg-subtitle {
+    margin: 5px;
+    font: normal 12px arial, tahoma, helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.x-epg-time {
+    font-style: italic;
+    margin: 5px;
+}
+
+.x-epg-prefix {
+    display: inline-block;
+    width: 12em;
+    font-weight: bold;
+}
+
+.x-epg-summary {
+    margin: 10px 5px 5px 5px;
+    font-weight: bold;
+}
+
+.x-epg-desc {
+    margin: 10px;
+}
+
+.x-epg-chicon {
+    float: right;
+    margin: 5px;
+    max-width: 132px;
+    max-height: 99px;
+}
+
+.x-epg-meta {
+    font-style: italic;
+    margin: 5px;
+}
+
+.hts-t-info {
+    float: left;
+    width: 100px;
+}
+
+.hts-doc-text {
+    font: normal 11px verdana;
+    padding: 5px;
+}
+
+.hts-doc-text dt {
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.hts-doc-text dl {
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+.hts-doc-text li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.hts-doc-text img {
+    padding: 10px;
+}
+
+.tv-video-player {
+    margin-right: auto;
+    margin-left : auto;
+
+    width : 100%;
+    height: 100%;
+    background: black;
+    color: white;
+}
+
+.tv-video-idle {
+    background-image     : url(../../docresources/tvheadendlogo.png);
+    background-repeat    : no-repeat;
+    background-position  : center;
+}
+
+.tv-video-message {
+    text-align: center;
+    font-size: 150%;
+}
+
+.about-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/** vim: ts=4:sw=4:nu:fdc=4:nospell 
+ *
+ * Ext.ux.grid.RowActions.css 
+ *
+ * Style sheets for Grid RowActions Plugin
+ *
+ * @author   Ing. Jozef Sakáloš
+ * @date     27. March 2008
+ * @verson   $Id: Ext.ux.grid.RowActions.css 140 2008-04-06 01:24:10Z jozo $
+ *
+ * @license Ext.ux.grid.RowActions.css is licensed under the terms of
+ * the Open Source LGPL 3.0 license.  Commercial use is permitted to the extent
+ * that the code/component(s) do NOT become part of another Open Source or Commercially
+ * licensed development library or toolkit without explicit permission.
+ * 
+ * License details: http://www.gnu.org/licenses/lgpl.html
+ */
+
+/* styles for rows */
+.ux-row-action-cell .x-grid3-cell-inner {
+    padding: 1px 0 0 0;
+}
+
+.ux-row-action-item {
+    float: left;
+    min-width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    margin: 0 5px 0 0;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.ext-ie .ux-row-action-item {
+    width: 16px;
+}
+
+.ext-ie .ux-row-action-text {
+    width: auto;
+}
+
+.ux-row-action-item span {
+    vertical-align: middle;
+    padding: 0 0 0 20px;
+    line-height: 18px;
+}
+
+.ext-ie .ux-row-action-item span {
+    width: auto;
+}
+
+/* styles for groups */
+.x-grid-group-hd div {
+    position: relative;
+    height: 16px;
+}
+
+.ux-grow-action-item {
+    min-width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-position: 0 50% ! important;
+    margin: 0 0 0 4px;
+    padding: 0 ! important;
+    cursor: pointer;
+    float: left;
+}
+
+.ext-ie .ux-grow-action-item {
+    width: 16px;
+}
+
+.ux-action-right {
+    float: right;
+    margin: 0 3px 0 2px;
+    padding: 0 ! important;
+}
+
+.ux-grow-action-text {
+    padding: 0 ! important;
+    margin: 0 ! important;
+    background: transparent none ! important;
+    float: left;
+}
+
+/** vim: ts=4:sw=4:nu:fdc=4:nospell
+ *
+ * Ext.ux.form.LovCombo CSS File
+ *
+ * @author    Ing.Jozef Sakáloš
+ * @copyright (c) 2008, by Ing. Jozef Sakáloš
+ * @date      5. April 2008
+ * @version   $Id: Ext.ux.form.LovCombo.css 189 2008-04-16 21:01:06Z jozo $
+ *
+ * @license Ext.ux.form.LovCombo.css is licensed under the terms of the Open Source
+ * LGPL 3.0 license. Commercial use is permitted to the extent that the 
+ * code/component(s) do NOT become part of another Open Source or Commercially
+ * licensed development library or toolkit without explicit permission.
+ * 
+ * License details: http://www.gnu.org/licenses/lgpl.html
+ */
+.ux-lovcombo-icon {
+    width: 16px;
+    height: 16px;
+    float: left;
+    background-position: -1px -1px ! important;
+    background-repeat: no-repeat ! important;
+}
+
+.ux-lovcombo-icon-checked {
+    background: transparent
+        url(../extjs/resources/images/default/menu/checked.gif);
+}
+
+.ux-lovcombo-icon-unchecked {
+    background: transparent 
+        url(../extjs/resources/images/default/menu/unchecked.gif);
+}
+
+/* eof */

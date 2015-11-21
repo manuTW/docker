@@ -1,0 +1,9 @@
+img:
+  build: .
+  image:
+    - manuchen/build_407
+  volumes_from:
+    - src
+
+src:
+  image: manuchen/src_407

@@ -1,0 +1,94 @@
+{
+  "targets": {
+
+    "precise-amd64": {
+      "buildenv": "precise-amd64",
+      "builddeps": [
+        "git",
+        "build-essential",
+        "pkg-config",
+        "libavahi-client-dev",
+        "libssl-dev",
+        "zlib1g-dev",
+        "wget",
+        "bzip2",
+        "git-core",
+        "liburiparser-dev",
+        "python"
+      ],
+
+      "buildcmd": [
+        "./configure --disable-dvbscan --enable-libffmpeg_static --enable-hdhomerun_static",
+        "make -j ${PARALLEL}"
+      ]
+    },
+
+    "precise-i386": {
+      "buildenv": "precise-i386",
+      "builddeps": [
+        "git",
+        "build-essential",
+        "pkg-config",
+        "libavahi-client-dev",
+        "libssl-dev",
+        "zlib1g-dev",
+        "wget",
+        "bzip2",
+        "git-core",
+        "liburiparser-dev",
+	"libx264-dev",
+        "python"
+      ],
+
+      "buildcmd": [
+        "./configure --disable-dvbscan --enable-libffmpeg_static --disable-libffmpeg_static_x264 --enable-hdhomerun_static",
+        "make -j ${PARALLEL}"
+      ]
+    },
+
+    "trusty-amd64": {
+      "buildenv": "trusty-amd64",
+      "builddeps": [
+        "git",
+        "build-essential",
+        "pkg-config",
+        "libavahi-client-dev",
+        "libssl-dev",
+        "zlib1g-dev",
+        "wget",
+        "bzip2",
+        "git-core",
+        "liburiparser-dev",
+        "python"
+      ],
+
+      "buildcmd": [
+        "./configure --disable-dvbscan --enable-libffmpeg_static --enable-hdhomerun_static",
+        "make -j ${PARALLEL}"
+      ]
+    },
+
+    "trusty-i386": {
+      "buildenv": "trusty-i386",
+      "builddeps": [
+        "git",
+        "build-essential",
+        "pkg-config",
+        "libavahi-client-dev",
+        "libssl-dev",
+        "zlib1g-dev",
+        "wget",
+        "bzip2",
+        "git-core",
+        "liburiparser-dev",
+	"libx264-dev",
+        "python"
+      ],
+
+      "buildcmd": [
+        "./configure --disable-dvbscan --enable-libffmpeg_static --disable-libffmpeg_static_x264 --enable-hdhomerun_static",
+        "make -j ${PARALLEL}"
+      ]
+    }
+  }
+}
