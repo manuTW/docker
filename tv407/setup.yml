@@ -1,9 +1,8 @@
 img:
-  build: .
-  image:
-    - manuchen/build_407
+  image: manuchen/tv407_build
   volumes_from:
     - src
 
 src:
-  image: manuchen/src_407
+  image: manuchen/tv407src
+
