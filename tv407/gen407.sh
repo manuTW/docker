@@ -15,11 +15,13 @@ docker-compose -f tmp.yml up
 
 #create build image
 docker-compose up
+cd ..
 docker export ${IMG_CONTAINER} >${IMG_TAR}
 
 #remove instances
 docker rm ${PROJ_BUILD}_tmp_1 ${IMG_CONTAINER} ${PROJ_BUILD}_src_1
 docker rmi ${IMG_BUILD}
-docker import - tv407_raw <${IMG_TAR}
+docker import - ${IMG_NAME}_raw <${IMG_TAR}
 rm ${IMG_TAR}
-docker build -t tv407
+docker build -t ${IMG_NAME} .
+docker rmi ${IMG_NAME}_raw

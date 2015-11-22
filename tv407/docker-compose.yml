@@ -1,8 +1,7 @@
 image:
-  image: tv407_img
+  image: tv407
   ports:
     - "9981:9981"
   privileged: true
 # devices:
 #   - "/dev/dvb:/dev:dvb"
-
