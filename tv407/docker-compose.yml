@@ -1,9 +1,8 @@
-tv407:
-  image: manuchen/tv407
+image:
+  image: tv407_img
   ports:
     - "9981:9981"
-  volumes:
-    - "Videos:/root/Videos"
-    - "dvb:/dev/dvb"
-  command: "/usr/local/bin/tvheadend -C"
+  privileged: true
+# devices:
+#   - "/dev/dvb:/dev:dvb"
 

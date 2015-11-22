@@ -1,5 +1,5 @@
-img:
-  image: manuchen/tv407_build
+tmp:
+  image: manuchen/tv407build
   volumes_from:
     - src
 

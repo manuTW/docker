@@ -1,0 +1,10 @@
+img:
+  build: img
+  environment:
+  - LD_LIBRARY_PATH=/usr/local/lib
+  volumes_from:
+    - src
+  command: /usr/local/bin/install.sh
+
+src:
+  image: manuchen/tv407src
