@@ -4,4 +4,4 @@ img:
     - src
 
 src:
-  image: manuchen/tv407build
+  image: tv407build
