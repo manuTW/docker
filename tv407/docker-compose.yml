@@ -1,5 +1,5 @@
 image:
-  image: tv407
+  image: manuchen/tv407
   ports:
     - "9981:9981"
   privileged: true

@@ -8,20 +8,17 @@ IMG_CONTAINER=${PROJ_BUILD}_${SERVICE}_1
 IMG_NAME=tv407
 IMG_TAR=${IMG_NAME}.tar
 
-#build libiconv and tvheadend
-#todo check existence of tv407_src_* and tv407_img_*
+#install libiconv and tvheadend
 cd ${PROJ_BUILD}
-docker-compose -f tmp.yml up
-
-#create build image
 docker-compose up
+
 cd ..
 docker export ${IMG_CONTAINER} >${IMG_TAR}
 
 #remove instances
-docker rm ${PROJ_BUILD}_tmp_1 ${IMG_CONTAINER} ${PROJ_BUILD}_src_1
+docker rm ${IMG_CONTAINER} ${PROJ_BUILD}_src_1
 docker rmi ${IMG_BUILD}
 docker import - ${IMG_NAME}_raw <${IMG_TAR}
 rm ${IMG_TAR}
-docker build -t ${IMG_NAME} .
+docker build -t manuchen/${IMG_NAME} .
 docker rmi ${IMG_NAME}_raw
