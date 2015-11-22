@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y pkg-config python build-essential libss
 	libhdhomerun-dev liburiparser-dev libdbus-1-dev && mkdir /mysrc
 ADD libiconv-1.13.1 /mysrc/libiconv-1.13.1
 ADD tv /mysrc/tv
-ADD install.sh /usr/local/bin/
+ADD install.sh /mysrc/install.sh
 
 WORKDIR /mysrc/libiconv-1.13.1
 RUN ./configure; make; make install
@@ -16,4 +16,4 @@ WORKDIR /mysrc/tv
 RUN ./configure --disable-avahi --disable-dvben50221 --disable-libav; make
 VOLUME ["/mysrc"]
 
-CMD ["/usr/local/bin/install.sh"]
+CMD ["/bin/true"]

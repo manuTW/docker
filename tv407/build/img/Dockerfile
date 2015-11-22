@@ -6,5 +6,5 @@ MAINTAINER Manu Chen
 RUN apt-get install -y make libssl-dev libhdhomerun-dev liburiparser-dev libdbus-1-dev &&\
 	mkdir /root/Videos
 
-CMD ["/usr/local/bin/install.sh"]
+CMD ["/mysrc/install.sh"]
 
