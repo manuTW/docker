@@ -14,6 +14,6 @@ RUN ./configure; make; make install
 
 WORKDIR /mysrc/tv
 RUN ./configure --disable-avahi --disable-dvben50221 --disable-libav; make
-VOLUMES ["/mysrc"]
+VOLUME ["/mysrc"]
 
 CMD ["/usr/local/bin/install.sh"]
