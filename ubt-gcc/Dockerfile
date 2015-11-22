@@ -1,8 +1,6 @@
 FROM ubuntu
 MAINTAINER Manu Chen
 
-RUN apt-get update &&\
-	apt-get install -y sudo build-essential git-core\
-	python vim wget
+RUN apt-get update && apt-get install -y gcc
 
 CMD ["/bin/bash"]
