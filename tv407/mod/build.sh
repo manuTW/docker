@@ -23,24 +23,19 @@ copy_mod() {
 
 #path of docker container
 export ARCH=x86_64
-KVER=3.12.6
-export PATH=/root/CT/${ARCH}-QNAP-linux-gnu/cross-tools/bin:$PATH
-export CROSS_COMPILE=${ARCH}-QNAP-linux-gnu-
+KVER=3.19
+#export PATH=/root/CT/${ARCH}-QNAP-linux-gnu/cross-tools/bin:$PATH
+#export CROSS_COMPILE=${ARCH}-QNAP-linux-gnu-
 TOP_KDIR=/root/kernel
-TOP_BDIR=/root/build
 TOP_MDIR=/root/linux-media
 TOP_RDIR=/root/release
-CUR_KDIR=${TOP_KDIR}/linux-${KVER}
-CUR_BDIR=${TOP_BDIR}/${KVER}/${ARCH}
+CUR_KDIR=${TOP_KDIR}/linux-${KVER}-${ARCH}
 CUR_MDIR=${TOP_MDIR}/${KVER}
 CUR_RDIR=${TOP_RDIR}/${KVER}/${ARCH}
 
-mkdir -p ${CUR_BDIR}
-cp ${TOP_KDIR}/cfg-${KVER}-${ARCH} ${CUR_BDIR}/.config
-make -C ${CUR_KDIR} O=${CUR_BDIR} oldconfig
-make -C ${CUR_KDIR} O=${CUR_BDIR} prepare
-make -C ${CUR_KDIR} O=${CUR_BDIR} modules_prepare
-echo "#define UTS_RELEASE \"${KVER}\"" >${CUR_BDIR}/include/generated/utsrelease.h
-make -C ${CUR_KDIR} O=${CUR_BDIR} M=${CUR_MDIR}
+[ ! -d ${CUR_KDIR} ] && echo "Missing kernel directory ${CUR_KDIR}" && exit
+[ ${KVER} = "3.12.6" -a ! -d ${CUR_MDIR} ] && mv ${TOP_MDIR}/3.12 ${CUR_MDIR}
+make -C ${CUR_KDIR} M=${CUR_MDIR} clean
+make -C ${CUR_KDIR} M=${CUR_MDIR}
 copy_mod ${CUR_MDIR} ${CUR_RDIR}
 
