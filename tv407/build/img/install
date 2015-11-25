@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ -d /lib/firmware ]; then
+	echo "/lib/firmware presents and copy firmware"
+fi
+
+if [ -d /lib/modules ]; then
+	echo "/lib/modules presents and copy modules"
+fi
+
