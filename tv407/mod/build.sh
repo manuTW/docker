@@ -1,7 +1,10 @@
 #!/bin/bash
 
+#$1 ver
+#$2 arch
+
 # modules to copy
-MOD_LIST="fc0012.ko fc0013.ko fc2580.ko dvb-usb-rtl28xxu.ko rtl2832.ko af9013.ko dvb-core.ko dvb_usb_v2.ko qt1010.ko af9033.ko dvb-pll.ko fc0011.ko rtl2830.ko dib0070.ko dvb-usb-af9015.ko s5h1411.ko dib0090.ko dvb-usb-af9035.ko it913x-fe.ko tda18218.ko dib3000mc.ko dvb-usb-dib0700.ko lgdt3305.ko tda18271.ko dib7000m.ko dvb-usb-dtt200u.ko mc44s803.ko tua9001.ko dib7000p.ko dvb-usb-it913x.ko mt2060.ko tuner-xc2028.ko dib8000.ko mt2266.ko xc4000.ko dib9000.ko mxl5005s.ko xc5000.ko dibx000_common.ko dvb-usb.ko mxl5007t.ko"
+MOD_LIST="fc0012.ko fc0013.ko fc2580.ko dvb-usb-rtl28xxu.ko rtl2832.ko af9013.ko dvb-core.ko dvb_usb_v2.ko qt1010.ko af9033.ko dvb-pll.ko fc0011.ko rtl2830.ko dib0070.ko dvb-usb-af9015.ko s5h1411.ko dib0090.ko dvb-usb-af9035.ko it913x-fe.ko tda18218.ko dib3000mc.ko dvb-usb-dib0700.ko lgdt3305.ko tda18271.ko dib7000m.ko dvb-usb-dtt200u.ko mc44s803.ko tua9001.ko dib7000p.ko dvb-usb-it913x.ko mt2060.ko tuner-xc2028.ko dib8000.ko mt2266.ko xc4000.ko dib9000.ko mxl5005s.ko xc5000.ko dibx000_common.ko dvb-usb.ko mxl5007t.ko rc-core.ko"
 
 # $1 - top of linux-media directory
 # $2 - destination directory
@@ -22,20 +25,34 @@ copy_mod() {
 
 
 #path of docker container
-export ARCH=x86_64
-KVER=3.19
-#export PATH=/root/CT/${ARCH}-QNAP-linux-gnu/cross-tools/bin:$PATH
-#export CROSS_COMPILE=${ARCH}-QNAP-linux-gnu-
+#export ARCH=x86_64
+KVER=$1
+ARCH=$2
+[ -z "${KVER}" ] && echo Please specify the kernel version && exit
+[ -z "${ARCH}" ] && ARCH=`uname -m`
+
+export ARCH
+
+[ ${ARCH} = arm ] && {
+	#build env
+	export PATH=/opt/cross-project/arm/linaro/bin:$PATH
+	export CROSS_COMPILE=arm-linux-gnueabihf-
+}
+
+echo Build against linux-${KVER}-${ARCH}
+
+#build env
 TOP_KDIR=/root/kernel
 TOP_MDIR=/root/linux-media
 TOP_RDIR=/root/release
+
 CUR_KDIR=${TOP_KDIR}/linux-${KVER}-${ARCH}
 CUR_MDIR=${TOP_MDIR}/${KVER}
 CUR_RDIR=${TOP_RDIR}/${KVER}/${ARCH}
 
 [ ! -d ${CUR_KDIR} ] && echo "Missing kernel directory ${CUR_KDIR}" && exit
 [ ${KVER} = "3.12.6" -a ! -d ${CUR_MDIR} ] && mv ${TOP_MDIR}/3.12 ${CUR_MDIR}
-make -C ${CUR_KDIR} M=${CUR_MDIR} clean
-make -C ${CUR_KDIR} M=${CUR_MDIR}
+ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} make -C ${CUR_KDIR} M=${CUR_MDIR} clean
+ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} make -C ${CUR_KDIR} M=${CUR_MDIR}
 copy_mod ${CUR_MDIR} ${CUR_RDIR}
 
