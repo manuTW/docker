@@ -20,5 +20,5 @@ docker rm ${IMG_CONTAINER} ${PROJ_BUILD}_src_1
 docker rmi ${IMG_BUILD}
 docker import - ${IMG_NAME}_raw <${IMG_TAR}
 rm ${IMG_TAR}
-docker build -t manuchen/${IMG_NAME} .
+docker build --no-cache -t manuchen/${IMG_NAME} .
 docker rmi ${IMG_NAME}_raw
