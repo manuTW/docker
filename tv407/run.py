@@ -19,8 +19,9 @@ cmd='export LIB_MODULE='+CWD+'/modules; '
 cmd+='export VERMAGIC=3.10.20-al-2.5.3_sa-SMP-mod_unload-ARMv7-p2v8; '
 cmd+=RC+' start'
 
-os.system('mkdir -p .hts')
-cmd='docker run -d -v ./:/root/Videos -v ./.hts:/root/.hts '
+os.system(cmd)
+os.system('rm -rf hts; mkdir -p hts')
+cmd='docker run -d -v /root/Videos -v hts:/root/.hts '
 cmd+='-p 9981:9981 -p 9982:9982 --privileged '
 cmd+='manuchen/tv407_arm'
 
