@@ -40,7 +40,7 @@ class cTVHE(object):
 		#magic
 		guessMagic=None
 		if kver:
-			for verStr in VER_TUP:
+			for verStr in self.VER_TUP:
 				if kver in verStr:
 					guessMagic=verStr
 					break
@@ -53,8 +53,8 @@ class cTVHE(object):
 		#abs of cur dir
 		self._curDir=os.path.abspath(os.path.realpath(__file__))
 		self._curDir=os.path.dirname(self._curDir)
-		self._myfw=self._curDir+'/'+MY_FW
-		self._mymod=self._curDir+'/'+MY_MOD
+		self._myfw=self._curDir+'/'+self.MY_FW
+		self._mymod=self._curDir+'/'+self.MY_MOD
 		#kernel ver and arch
 		self._getKverArch()
 
@@ -66,20 +66,20 @@ class cTVHE(object):
 			os.sys.exit(-1)
 		os.system('rm -rf '+self._myfw+' '+self._mymod)
 		os.system('mkdir -p '+self._myfw+' '+self._mymod)
-		if os.path.exists(SYS_FW):
-			if not os.path.islink(SYS_FW):
-				print SYS_FW+' exists but it is not a link'
+		if os.path.exists(self.SYS_FW):
+			if not os.path.islink(self.SYS_FW):
+				print self.SYS_FW+' exists but it is not a link'
 				os.sys.exit(-1)
-			print SYS_FW+' exists, to be removed'
-		os.system('rm -f '+SYS_FW)
-		os.system('ln -s '+self._myfw+' '+SYS_FW)
+			print self.SYS_FW+' exists, to be removed'
+		os.system('rm -f '+self.SYS_FW)
+		os.system('ln -s '+self._myfw+' '+self.SYS_FW)
 		cmd='docker run -it --rm '
-		cmd+='-v '+self._myfw+':'+SYS_FW+' '
-		cmd+='-v '+self._mymod+':'+SYS_MOD+' '
-		cmd+='-v '+self._mymod+':'+MOUNT_RC+' '        #RC copy to modules dir
-		cmd+='-e "LIB_FIRMWARE='+SYS_FW+'" '
-		cmd+='-e "LIB_MODULE='+SYS_MOD+'" '
-		cmd+='-e "APP_DIR='+MOUNT_RC+'" '
+		cmd+='-v '+self._myfw+':'+self.SYS_FW+' '
+		cmd+='-v '+self._mymod+':'+self.SYS_MOD+' '
+		cmd+='-v '+self._mymod+':'+self.MOUNT_RC+' '        #RC copy to modules dir
+		cmd+='-e "LIB_FIRMWARE='+self.SYS_FW+'" '
+		cmd+='-e "LIB_MODULE='+self.SYS_MOD+'" '
+		cmd+='-e "APP_DIR='+self.MOUNT_RC+'" '
 		cmd+='-e "VERMAGIC='+self._magic+'" manuchen/tvheadend'
 		if self._arch == 'arm': cmd+='_arm'
 		cmd+=' /bin/bash /usr/local/bin/myinstall install'
@@ -107,21 +107,22 @@ class cTVHE(object):
 			os.system('rm -rf hts; mkdir -p hts')
 			os.system(cmd2)
 
-		if __name__ == '__main__':
-			def check_param():
-				parser = argparse.ArgumentParser()
-				parser.add_argument('-i', action='store_true', dest='doInstall', default=False,
-					help='to install')
-				parser.add_argument('-r', action='store_true', dest='doRun', default=False,
-					help='to run')
-				parser.add_argument('-d', action='store_true', dest='dbg', default=False,
-					help='debug only, no execution')
-				arg=parser.parse_args()
-				return arg
+if __name__ == '__main__':
+	def check_param():
+		parser = argparse.ArgumentParser()
+		parser.add_argument('-i', action='store_true', dest='doInstall', default=False,
+			help='to install')
+		parser.add_argument('-r', action='store_true', dest='doRun', default=False,
+			help='to run')
+		parser.add_argument('-d', action='store_true', dest='dbg', default=False,
+			help='debug only, no execution')
+		arg=parser.parse_args()
+		return arg
 
-			arg=check_param()
-			tvheadend=cTVHE()
-			if arg.doInstall:
-				tvheadend.install(arg.dbg)
-			elif arg.doRun:
-				tvheadend.run(arg.dbg)
+	arg=check_param()
+	tvheadend=cTVHE()
+	if arg.doInstall:
+		tvheadend.install(arg.dbg)
+	elif arg.doRun:
+		tvheadend.run(arg.dbg)
+
