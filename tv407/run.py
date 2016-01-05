@@ -23,7 +23,7 @@ os.system(cmd)
 os.system('rm -rf hts; mkdir -p hts')
 cmd='docker run -d -v /root/Videos -v hts:/root/.hts '
 cmd+='-p 9981:9981 -p 9982:9982 --privileged '
-cmd+='manuchen/tv407_arm'
+cmd+='manuchen/tvheadend_arm'
 
 print cmd
 if len(sys.argv) is 1:
