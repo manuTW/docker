@@ -3,7 +3,7 @@
 #
 
 # Pull base image.
-FROM ubuntu:14.10
+FROM ubuntu:14.04.4
 
 MAINTAINER Manu Chen (manuchen@gmail.com)
 
