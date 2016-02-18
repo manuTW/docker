@@ -3,7 +3,7 @@
 #
 
 # Pull base image.
-FROM ubt1410
+FROM ubuntu:14.10
 
 MAINTAINER Manu Chen (manuchen@gmail.com)
 
