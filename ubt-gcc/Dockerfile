@@ -20,7 +20,7 @@ ADD . /home/dummy
 RUN apt-get update &&\
 	apt-get install -y sudo gcc build-essential git-core\
 	libgtest-dev cmake python vim cifs-utils man\
-	xrdp xfce4 xfce4-terminal gnome-icon-theme-full tango-icon-theme
+	xrdp xfce4 xfce4-terminal
 	
 
 
