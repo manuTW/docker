@@ -10,13 +10,18 @@ ADD . /home/dummy
 
 
 #libgtest-dev cmake for gtest
+#to support windows rdp
+# xrdp and xfce4
 #support cifs, use
 #	> docker run -it --privileged
 # in docker...no need to provide machine name
 #	$ mount.cifs //62.11.20.107/d /opt -o username=manu
+
 RUN apt-get update &&\
 	apt-get install -y sudo gcc build-essential git-core\
-	libgtest-dev cmake python vim cifs-utils man
+	libgtest-dev cmake python vim cifs-utils man\
+	xrdp xfce4 xfce4-terminal gnome-icon-theme-full tango-icon-theme
+	
 
 
 #for easy access to driver d:
@@ -36,6 +41,10 @@ RUN cmake -E make_directory build &&\
 	cp build/libgtest* /usr/local/lib/ &&\
 	rm -rf build
 
+#xfce4
+RUN echo xfce4-session >/root/.xession
+COPY startwm.sh /etc/xrdp/startwm.sh
+RUN passwd< chpwd
 	
 WORKDIR /root
 USER root
