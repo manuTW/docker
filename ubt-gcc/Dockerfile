@@ -1,5 +1,5 @@
-FROM ubuntu:14.04.4
-MAINTAINER Manu Chen
+FROM ubuntu
+MAINTAINER Manu Chen (manuchen@gmail.com)
 
 ADD . /home/dummy
 #ENV PROXY_HOST="10.1.1.60"
@@ -19,8 +19,7 @@ ADD . /home/dummy
 
 RUN apt-get update &&\
 	apt-get install -y sudo gcc build-essential git-core\
-	libgtest-dev cmake python vim cifs-utils man\
-	xrdp xfce4
+	libgtest-dev cmake python vim cifs-utils man xrdp xfce4-terminal
 	
 
 
@@ -44,8 +43,10 @@ RUN cmake -E make_directory build &&\
 #xfce4
 RUN echo xfce4-session >/root/.xession
 COPY startwm.sh /etc/xrdp/startwm.sh
-RUN passwd< chpwd
-	
+COPY chpwd /tmp/chpwd
+RUN passwd< /tmp/chpwd
+
+EXPOSE 5900 3398
 WORKDIR /root
 USER root
 CMD ["/bin/bash"]
