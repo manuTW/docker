@@ -1,7 +1,8 @@
 ===== Overview =====
 This is a project to build the Tvheadend application into a docker container. Both x86_64 and ARM 
 architectures are supported. The latter, so far as I know, requires an ARM machine to run with.
-The build machine should install python, docker and docker-compose in advance.
+The build machine should install python, docker and docker-compose in advance. Please also check
+the pptx file in this directory.
 
 ===== Build steps =====
 There are a few stages to come out a Tvheadend container image:
